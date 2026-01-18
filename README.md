@@ -7,10 +7,6 @@ Environment:
 conda env create -f environment.yml
 ```
 
-Data：
-
-Data can be downloaded at https://drive.google.com/file/d/1M2tKKDOGXq3RNEyB4_bJ6g76Z985NqlO/view?usp=sharing
-
 Run:
 
 ```bash
