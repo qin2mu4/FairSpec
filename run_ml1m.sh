@@ -52,8 +52,7 @@ python run.py \
   --greater_is_better True \
   --fairness_coef 0.05 \
   --fair_e "0,1,2,3" \
-  --sens_size "4,2" \
-  &> "${OUTPUT}/log/ml1m_${DATASET}.log"
+  --sens_size "4,2"
 
 
 MODEL="Llama-3.2-3B-Instruct"
@@ -101,8 +100,7 @@ python run.py \
   --greater_is_better True \
   --fairness_coef 0.05 \
   --fair_e "0,1,2,3" \
-  --sens_size "4,2" \
-  &> "${OUTPUT}/log/ml1m_${DATASET}.log"
+  --sens_size "4,2"
 
 
 MODEL="Llama2_7b_chat_hf"
@@ -150,8 +148,7 @@ python run.py \
   --greater_is_better True \
   --fairness_coef 0.05 \
   --fair_e "0,1,2,3,4,5" \
-  --sens_size "4,2" \
-  &> "${OUTPUT}/log/ml1m_${DATASET}.log"
+  --sens_size "4,2"
 
 
 MODEL="Qwen2.5-7B-Instruct"
@@ -199,8 +196,7 @@ python run.py \
   --greater_is_better True \
   --fairness_coef 0.05 \
   --fair_e "0,1,2,3" \
-  --sens_size "4,2" \
-  &> "${OUTPUT}/log/ml1m_${DATASET}.log"
+  --sens_size "4,2"
   
   
 
