@@ -61,7 +61,6 @@ class LoraConfig(PeftConfig):
     ablation: str = field(default='', metadata={"help": "Expert ablation"})
     fair_e: str = field(default='', metadata={"help": "fair expert"})
     sens_size: str = field(default='', metadata={"help": "fair expert"})
-    visual: bool = field(default=False, metadata={"help": "visual"})
     lora_dropout: float = field(default=None, metadata={"help": "Lora dropout"})
     merge_weights: bool = field(
         default=False, metadata={"help": "Merge weights of the original model and the Lora model"}
@@ -156,7 +155,6 @@ class LoraModel(torch.nn.Module):
                                         ablation=self.peft_config.ablation,
                                         fair_e=self.peft_config.fair_e,
                                         sens_size=self.peft_config.sens_size,
-                                        visual=self.peft_config.visual,
                                         bias=bias, **kwargs)
 
                 self._replace_module(parent, target_name, new_module, target)
@@ -294,7 +292,6 @@ class Linear(nn.Linear, LoraLayer):
         ablation: str = '',
         fair_e: str = '',
         sens_size: str = '',
-        visual: bool = False,
         **kwargs,
     ):
         nn.Linear.__init__(self, in_features, out_features, **kwargs)
@@ -306,7 +303,6 @@ class Linear(nn.Linear, LoraLayer):
         self.ablation = [int(abl) for abl in ablation.split(',')] if len(ablation) > 0 else []
         self.fair_e = [int(f_e) for f_e in fair_e.split(',')] if len(fair_e) > 0 else []
         self.sens_size = [int(f_e) for f_e in sens_size.split(',')] if len(sens_size) > 0 else []
-        self.visual = visual
 
         self.fan_in_fan_out = fan_in_fan_out
 

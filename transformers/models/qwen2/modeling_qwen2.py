@@ -40,13 +40,11 @@ class Qwen2MLP(nn.Module):
         self.up_proj = nn.Linear(self.hidden_size, self.intermediate_size, bias=False)
         self.down_proj = nn.Linear(self.intermediate_size, self.hidden_size, bias=False)
         self.act_fn = ACT2FN[config.hidden_act]
-        self.visual = config.visual
 
     def forward(self, x, router_pred):
         down_proj, fair_e_result, route_save = self.down_proj(
             self.act_fn(self.gate_proj(x, router_pred)[0]) * self.up_proj(x, router_pred)[0],
-            router_pred,
-            reture_router = self.visual
+            router_pred
         )
         return down_proj, fair_e_result, route_save
 
@@ -500,7 +498,6 @@ class Qwen2ForCausalLM(Qwen2PreTrainedModel, GenerationMixin):
             out_put_size=256
         )
         self.classifier_list = nn.ModuleList()
-        self.visual = config.visual
         if len(config.sens_size) > 0:
             self.sens_size = config.sens_size
             self.out_put_size_list = [int(i) for i in config.sens_size.split(',')]

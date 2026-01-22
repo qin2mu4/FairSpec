@@ -3,7 +3,8 @@ export WANDB_DISABLED=true
 export SWANLAB_DISABLED=true
 export SWANLAB_MODE=disabled
 BASE_PATH="/home/user/lm_models"
-OUTPUT="/home/user/code/llm_bias/FairSpec/output"
+BASE_FILE_PATH="/home/user/code/llm_bias/FairSpec"
+OUTPUT="${BASE_FILE_PATH}/output"
 
 
 MODEL="Llama-3.1-8B-Instruct"
@@ -13,7 +14,7 @@ python run.py \
   --model_name_or_path "${MODEL_FULL_PATH}" \
   --tokenizer_name_or_path "${MODEL_FULL_PATH}" \
   --model_name "${DATASET}" \
-  --dataset_dir "/home/user/code/llm_bias/FairSpec/data/book/${DATASET}" \
+  --dataset_dir "${BASE_FILE_PATH}/data/book/${DATASET}" \
   --per_device_train_batch_size 2 \
   --per_device_eval_batch_size 2 \
   --do_train True \
@@ -62,7 +63,7 @@ python run.py \
   --model_name_or_path "${MODEL_FULL_PATH}" \
   --tokenizer_name_or_path "${MODEL_FULL_PATH}" \
   --model_name ${DATASET} \
-  --dataset_dir "/home/user/code/llm_bias/FairSpec/data/book/${DATASET}" \
+  --dataset_dir "${BASE_FILE_PATH}/data/book/${DATASET}" \
   --per_device_train_batch_size 2 \
   --per_device_eval_batch_size 2 \
   --do_train True \
@@ -111,7 +112,7 @@ python run.py \
   --model_name_or_path "${MODEL_FULL_PATH}" \
   --tokenizer_name_or_path "${MODEL_FULL_PATH}" \
   --model_name ${DATASET} \
-  --dataset_dir "/home/user/code/llm_bias/FairSpec/data/book/${DATASET}" \
+  --dataset_dir "${BASE_FILE_PATH}/data/book/${DATASET}" \
   --per_device_train_batch_size 2 \
   --per_device_eval_batch_size 2 \
   --do_train True \
@@ -160,7 +161,7 @@ python run.py \
   --model_name_or_path "${MODEL_FULL_PATH}" \
   --tokenizer_name_or_path "${MODEL_FULL_PATH}" \
   --model_name ${DATASET} \
-  --dataset_dir "/home/user/code/llm_bias/FairSpec/data/book/${DATASET}" \
+  --dataset_dir "${BASE_FILE_PATH}/data/book/${DATASET}" \
   --per_device_train_batch_size 2 \
   --per_device_eval_batch_size 2 \
   --do_train True \
